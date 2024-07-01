@@ -1,3 +1,5 @@
+Here's the updated README with the live URL and repository URL included:
+
 # Hello React Realtime Chat Application
 
 ## Overview
@@ -119,6 +121,14 @@ The application uses Firebase for authentication, Firestore for data storage, an
 - Use the search bar to find other users and start a chat.
 - Send text, files, and images in chat conversations.
 - Logout using the logout button in the sidebar.
+
+## Live Demo
+
+You can access the live application at [https://hello-react-chat.netlify.app/](https://hello-react-chat.netlify.app/).
+
+## Repository
+
+The project repository is available at [https://github.com/Abdul-Rahman-E/hello-react-chat](https://github.com/Abdul-Rahman-E/hello-react-chat).
 
 ## License
 
