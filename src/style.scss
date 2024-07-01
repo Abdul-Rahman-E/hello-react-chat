@@ -1,0 +1,437 @@
+// Define color variables
+$color-light-purple: #e6e6fa;
+$color-white: #ffffff;
+$color-dark-purple: #4b0082;
+$color-light-lavender: #b19cd9;
+$color-placeholder-gray: #afafaf;
+$color-light-purple2: #9b7fcf;
+$color-button-purple: #7c41a5;
+$color-dark-gray: #333333;
+$color-light-gray-bg: #f5f5fa;
+$color-black: #000000;
+$color-sidebar-bg: #eff1fb;
+$color-navbar-bg: #4079d4;
+$color-off-white: #ffffff;
+$color-avatar-bg: #ddddf7;
+$color-button-bg-light: #cdb4fc;
+$color-input-text: #332e2e;
+$color-input-placeholder: #342e2e;
+$color-hover-bg: #6b44b3;
+$color-chat-bg: #d3dbf1;
+$color-message-bg: #8dc0ec;
+$color-owner-msg-bg: #4079d4;
+$color-button-send: #8da4f1;
+$color-button-send-hover: #7d96e9;
+$color-icon: #9a8f8f;
+$color-icon-hover: #332e2e;
+$color-gray-border: gray;
+$color-message-info: rgb(116, 115, 115);
+$color-light-gray: lightgray;
+$color-light-purple3: #d4cfcf;
+$color-light-gray-text: #ddd7d7;
+$color-dark-purple-header: #4b75d6;
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+// Mixins for responsiveness
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+// Form container styles
+.formContainer {
+  background-color: $color-light-purple;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .formWrapper {
+    background-color: $color-white;
+    padding: 20px 60px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    .logo {
+      color: $color-dark-purple;
+      font-weight: bold;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .title {
+      color: $color-dark-purple;
+      font-size: 16px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      input {
+        padding: 15px;
+        width: 250px;
+        border: none;
+
+        &::placeholder {
+          color: $color-placeholder-gray;
+        }
+      }
+
+      label {
+        font-size: 35px;
+        color: $color-light-purple2;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        span {
+          font-size: 14px;
+        }
+      }
+
+      button {
+        background-color: $color-button-purple;
+        color: $color-white;
+        padding: 10px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+      }
+    }
+
+    p {
+      color: $color-dark-gray;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+}
+
+// Home styles
+.home {
+  background-color: $color-light-gray-bg;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    border-radius: 10px;
+    width: 65%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+    @include tablet {
+      width: 90%;
+    }
+
+    .sidebar {
+      flex: 1;
+      background-color: $color-sidebar-bg;
+      position: relative;
+
+      .navbar {
+        display: flex;
+        align-items: center;
+        background-color: $color-navbar-bg;
+        height: 2.5rem;
+        padding: 25px 7px;
+        justify-content: space-between;
+        color: $color-off-white;
+        gap: 10px;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+          rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+          rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+          rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+        .logo {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 24px;
+          font-weight: bold;
+          @include tablet {
+            display: none;
+          }
+        }
+
+        .user {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          img {
+            background: $color-avatar-bg;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          button {
+            background-color: $color-button-bg-light;
+            color: $color-dark-purple;
+            font-size: 0.8rem;
+            border: none;
+            cursor: pointer;
+            padding: 4px 8px;
+
+            @include tablet {
+              position: absolute;
+              bottom: 10px;
+            }
+            &:active {
+              transform: scale(0.96);
+            }
+          }
+        }
+      }
+
+      .search {
+        border-bottom: 1px solid rgb(221, 213, 213);
+
+        .searchForm {
+          background-color: $color-off-white;
+          box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+
+          input {
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            color: $color-input-text;
+            outline: none;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px -40px 36px -28px inset;
+
+            &:focus {
+              box-shadow: none;
+            }
+
+            &::placeholder {
+              color: $color-input-placeholder;
+            }
+          }
+        }
+      }
+
+      .userChat {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: black;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
+        &:hover {
+          background-color: rgb(241, 246, 252);
+        }
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .userChatInfo {
+          span {
+            font-size: 18px;
+            font-weight: 500;
+          }
+          p {
+            font-size: 14px;
+            color: rgb(101, 94, 94);
+          }
+        }
+      }
+    }
+
+    .chat {
+      position: relative;
+      flex: 2;
+
+      .chatInfo {
+        height: 50px;
+        background-color: $color-dark-purple-header;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        color: $color-light-gray;
+      }
+
+      .chatIcons {
+        display: flex;
+        gap: 10px;
+        font-size: 24px;
+        color: white;
+
+        .cam:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+          color: $color-white;
+        }
+        .more:hover {
+          cursor: pointer;
+          transform: scale(1.1);
+          color: $color-white;
+        }
+      }
+
+      .messages {
+        background-color: $color-chat-bg;
+        padding: 10px;
+        overflow: scroll;
+
+        .message {
+          display: flex;
+          gap: 20px;
+          margin-bottom: 20px;
+
+          .messageInfo {
+            display: flex;
+            flex-direction: column;
+            color: $color-message-info;
+            font-weight: 300;
+            img {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+          .messageContent {
+            max-width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            div {
+              display: flex;
+              align-items: center;
+              p {
+                background-color: $color-message-bg;
+                padding: 10px 20px;
+                border-radius: 0px 10px 10px 10px;
+                max-width: max-content;
+              }
+              span {
+                cursor: pointer;
+
+                &:hover {
+                  color: rgb(196, 0, 0);
+                  transform: scale(1.2);
+                  transition: all 200ms linear;
+                }
+              }
+            }
+
+            img {
+              width: 50%;
+            }
+          }
+
+          &.owner {
+            flex-direction: row-reverse;
+
+            .messageContent {
+              align-items: flex-end;
+              p {
+                background-color: $color-owner-msg-bg;
+                color: $color-white;
+                border-radius: 10px 0px 10px 10px;
+                max-width: max-content;
+              }
+            }
+          }
+        }
+      }
+
+      .input {
+        height: 50px;
+        background-color: $color-white;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        input {
+          width: 100%;
+          border: none;
+          outline: none;
+          font-size: 18px;
+
+          &::placeholder {
+            color: $color-input-placeholder;
+          }
+        }
+
+        .send {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          button {
+            border: none;
+            padding: 10px 15px;
+            color: $color-white;
+            background-color: $color-button-send;
+            cursor: pointer;
+
+            &:active {
+              transform: scale(0.97);
+            }
+            &:hover {
+              background-color: $color-button-send-hover;
+              transition: background-color 200ms ease-in;
+            }
+          }
+        }
+
+        .send .doc-icon {
+          font-size: 1.5rem;
+          color: $color-icon;
+          cursor: pointer;
+
+          &:hover {
+            color: $color-icon-hover;
+            transition: color 500ms ease-in;
+          }
+        }
+      }
+    }
+  }
+}
