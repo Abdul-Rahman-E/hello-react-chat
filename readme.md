@@ -1,5 +1,3 @@
-Here's the updated README with the live URL and repository URL included:
-
 # Hello React Realtime Chat Application
 
 ## Overview
